@@ -101,11 +101,21 @@ if (navigator.mediaDevices.getUserMedia) {
 
 
 
-      $.get("https://www.google.ca");
+      // $.get("https://www.google.ca");
 
-      fetch("http://127.0.0.1:8000")
-        .then((response) => response.json())
-        .then((data) => console.log(data));
+      // fetch("https://www.google.ca",
+      // {
+      //   method: "GET",
+      // })
+      //   .then((response) => console.log(response));
+
+      // fetch("http://127.0.0.1:8080", 
+      // {
+      //   method: "GET",
+      //   // mode: "cors"
+      // })
+      //   .then((response) => response.json())
+      //   .then((data) => console.log(data));
 
 
 
@@ -115,9 +125,9 @@ if (navigator.mediaDevices.getUserMedia) {
       fetch("http://127.0.0.1:8080/api/transcribe", {
         method: "POST",
         body: formData,
-        headers: headers,
-        mode: 'no-cors'
-
+        mode: "cors"
+        // headers: headers,
+        // mode: 'no-cors'
       })
       .then((response) => response.json())
       .then((responseText) => {
