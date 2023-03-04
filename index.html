@@ -1,0 +1,64 @@
+<!-- Source: https://github.com/mdn/dom-examples/tree/main/media/web-dictaphone -->
+
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Web dictaphone</title>
+    <link href="styles/app.css" rel="stylesheet" type="text/css">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.js" integrity="sha512-nO7wgHUoWPYGCNriyGzcFwPSF+bPDOR+NvtOYy2wMcWkrnCNPKBcFEkU80XIN14UVja0Gdnff9EmydyLlOL7mQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/recorderjs/0.1.0/recorder.js" integrity="sha512-zSq4Vvm00k8M01OLF/SmwKryVpA7YVXIbEFHU1rvNw3pgH50SjL6O4nDbB65V76YKWmr3rPABOXJ+uz+Z3BEmw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+
+  </head>
+  <body>
+
+    <div class="wrapper">
+
+      <header>
+        <h1>Web dictaphone</h1>
+      </header>
+
+      <section class="main-controls">
+        <canvas class="visualizer" height="60px"></canvas>
+        <div id="buttons">
+          <button class="record">Record</button>
+          <button class="stop">Stop</button>
+        </div>
+      </section>
+
+      <section class="sound-clips">
+
+
+      </section>
+
+    </div>
+
+    <label for="toggle">❔</label>
+    <input type="checkbox" id="toggle">
+    <aside>
+      <h2>Information</h2>
+
+      <p>Web dictaphone is built using <a href="https://developer.mozilla.org/en-US/docs/Web/API/Navigator.getUserMedia">getUserMedia</a> and the <a href="https://developer.mozilla.org/en-US/docs/Web/API/MediaRecorder_API">MediaRecorder API</a>, which provides an easier way to capture Media streams.</p>
+
+      <p>Icon courtesy of <a href="http://findicons.com/search/microphone">Find Icons</a>. Thanks to <a href="http://soledadpenades.com/">Sole</a> for the Oscilloscope code!</p>
+    </aside>
+
+    <script>
+
+
+      
+      // console.log('test');
+      // $.ajax({
+      //   url: "http://127.0.0.1:8080",
+      //   type: "GET",
+      //   dataType: "json"
+      // });
+    </script>
+
+    <!-- <script src="scripts/app.js"></script> -->
+
+  </body>
+</html>
