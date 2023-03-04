@@ -2,6 +2,10 @@ function addInitialInput(text) {
   return `<p><b>Input:</b> ${text}</p>`
 }
 
+function addIncrement(count, text) {
+  return `<p><b>Iteration ${count}</b>: ${text}`
+}
+
 function addFinalOutput(text) {
   return `<p><b>Output:</b> ${text}</p>`
 }
@@ -14,6 +18,8 @@ const soundClips = document.querySelector('.sound-clips');
 const canvas = document.querySelector('.visualizer');
 const mainSection = document.querySelector('.main-controls');
 
+
+const loaderDiv = document.getElementById("loader");
 const resultsDiv = document.getElementById("results");
 
 // disable stop button while not recording
@@ -31,6 +37,8 @@ const canvasCtx = canvas.getContext("2d");
 
 if (navigator.mediaDevices.getUserMedia) {
   console.log('getUserMedia supported.');
+  // loaderDiv.style.display = "block";
+
 
   const constraints = { audio: true };
   let chunks = [];
@@ -64,6 +72,8 @@ if (navigator.mediaDevices.getUserMedia) {
 
     mediaRecorder.onstop = function(e) {
       console.log("data available after MediaRecorder.stop() called.");
+
+      loaderDiv.style.display = "block";
 
       // const clipName = prompt('Enter a name for your sound clip?','My unnamed clip');
 
@@ -147,8 +157,17 @@ if (navigator.mediaDevices.getUserMedia) {
         console.log(responseText);
         var audio = new Audio('D:\\development-projects\\mais-project-x-2022\\static\\output_speech.mp3');
 
+      loaderDiv.style.display = "none";
+
 
         resultsDiv.innerHTML += addInitialInput(responseText.data.initialText);
+
+        for (let i=0; i<responseText.data.history.history.length-2 ; i++) {
+          let iter = responseText.data.history.history[i+1].iteration;
+          let text = responseText.data.history.history[i+1].text;
+          resultsDiv.innerHTML += addIncrement(iter, text)
+        }
+
         resultsDiv.innerHTML +=  addFinalOutput(responseText.data.outputText);
 
         audio.play();
