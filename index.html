@@ -6,7 +6,56 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width">
     <title>Web dictaphone</title>
-    <link href="styles/app.css" rel="stylesheet" type="text/css">
+    <!-- <link href="styles/app.css" rel="stylesheet" type="text/css"> -->
+
+<!--     <link type="text/css">
+    </link>
+ -->
+    <style type="text/css">
+      body {
+        font-family: "Arial";
+        padding-left: 3%;
+        padding-right: 3%;
+      }
+
+      .ag-title{
+        text-align: center;
+      }
+
+      .ag-subtitle{
+        text-align: center;
+      }
+
+      .record {
+        height: 30px;
+        width: 49%;
+        outline: 0;
+        /*outline-width: 0px;*/
+        background-color: rgba(30,30,255,0.3)
+      }
+
+      .stop {
+        width: 49%;
+        height: 30px;
+        outline: 0;
+        /*outline-width: 0px;*/
+        background-color: rgba(30,30,255,0.3)
+      }
+
+      .ag-spacer {
+        height: 50px;
+      }
+
+      .ag-attribution {
+        /*padding-left: 3%;*/
+        /*padding-right: 3%;*/
+      }
+
+      .main-controls {
+        /*padding-left: 3%;*/
+        /*padding-right: 3%;*/
+      }
+    </style>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.js" integrity="sha512-nO7wgHUoWPYGCNriyGzcFwPSF+bPDOR+NvtOYy2wMcWkrnCNPKBcFEkU80XIN14UVja0Gdnff9EmydyLlOL7mQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/recorderjs/0.1.0/recorder.js" integrity="sha512-zSq4Vvm00k8M01OLF/SmwKryVpA7YVXIbEFHU1rvNw3pgH50SjL6O4nDbB65V76YKWmr3rPABOXJ+uz+Z3BEmw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
@@ -18,32 +67,46 @@
     <div class="wrapper">
 
       <header>
-        <h1>Web dictaphone</h1>
+        <h1 class="ag-title">AGORA Demo</h1>
+        <p class="ag-subtitle">Canadian Undergraduate Conference on Artifical Intelligence, March 4-5, 2023</p>
       </header>
 
       <section class="main-controls">
         <canvas class="visualizer" height="60px"></canvas>
         <div id="buttons">
-          <button class="record">Record</button>
-          <button class="stop">Stop</button>
+          <center>
+            <button class="record">Record</button>
+            <button class="stop">Stop</button>
+          </center>
         </div>
       </section>
-
+<!-- 
       <section class="sound-clips">
 
 
       </section>
+ -->
+
+    <div id="results">
+    </div>
 
     </div>
 
-    <label for="toggle">❔</label>
-    <input type="checkbox" id="toggle">
-    <aside>
-      <h2>Information</h2>
+    <!-- <label for="toggle">❔</label> -->
+    <!-- <input type="checkbox" id="toggle"> -->
+    <div class="ag-spacer">
+    </div>
+    <aside class="ag-attribution">
+      <h2>Frontend Attribution</h2>
+      <p>This frontend was developed based on the Mozilla Developer Network's GitHub subdirectory ("Web Dictaphone") available at <a href="https://github.com/mdn/dom-examples/tree/main/media/web-dictaphone" target="_blank">this link</a>.</p>
 
-      <p>Web dictaphone is built using <a href="https://developer.mozilla.org/en-US/docs/Web/API/Navigator.getUserMedia">getUserMedia</a> and the <a href="https://developer.mozilla.org/en-US/docs/Web/API/MediaRecorder_API">MediaRecorder API</a>, which provides an easier way to capture Media streams.</p>
 
-      <p>Icon courtesy of <a href="http://findicons.com/search/microphone">Find Icons</a>. Thanks to <a href="http://soledadpenades.com/">Sole</a> for the Oscilloscope code!</p>
+
+      <!-- <h2>Information</h2> -->
+
+      <!-- <p>Web dictaphone is built using <a href="https://developer.mozilla.org/en-US/docs/Web/API/Navigator.getUserMedia">getUserMedia</a> and the <a href="https://developer.mozilla.org/en-US/docs/Web/API/MediaRecorder_API">MediaRecorder API</a>, which provides an easier way to capture Media streams.</p> -->
+
+      <!-- <p>Icon courtesy of <a href="http://findicons.com/search/microphone">Find Icons</a>. Thanks to <a href="http://soledadpenades.com/">Sole</a> for the Oscilloscope code!</p> -->
     </aside>
 
     <script>

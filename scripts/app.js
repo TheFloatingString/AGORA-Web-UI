@@ -1,3 +1,11 @@
+function addInitialInput(text) {
+  return `<p><b>Input:</b> ${text}</p>`
+}
+
+function addFinalOutput(text) {
+  return `<p><b>Output:</b> ${text}</p>`
+}
+
 // set up basic variables for app
 
 const record = document.querySelector('.record');
@@ -5,6 +13,8 @@ const stop = document.querySelector('.stop');
 const soundClips = document.querySelector('.sound-clips');
 const canvas = document.querySelector('.visualizer');
 const mainSection = document.querySelector('.main-controls');
+
+const resultsDiv = document.getElementById("results");
 
 // disable stop button while not recording
 
@@ -78,7 +88,7 @@ if (navigator.mediaDevices.getUserMedia) {
       clipContainer.appendChild(audio);
       clipContainer.appendChild(clipLabel);
       clipContainer.appendChild(deleteButton);
-      soundClips.appendChild(clipContainer);
+      // soundClips.appendChild(clipContainer);
 
       console.log(audio);
       console.log(soundClips);
@@ -135,6 +145,13 @@ if (navigator.mediaDevices.getUserMedia) {
       .then((responseText) => {
         console.log("resp text!");
         console.log(responseText);
+        var audio = new Audio('D:\\development-projects\\mais-project-x-2022\\static\\output_speech.mp3');
+
+
+        resultsDiv.innerHTML += addInitialInput(responseText.data.initialText);
+        resultsDiv.innerHTML +=  addFinalOutput(responseText.data.outputText);
+
+        audio.play();
       });
 
       console.log("recorder stopped");
